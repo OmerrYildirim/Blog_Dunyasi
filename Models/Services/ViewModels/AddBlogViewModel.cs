@@ -9,6 +9,7 @@ namespace DogusProject.Models.Services.ViewModels;
 
 public class AddBlogViewModel
 {
+    [Validations.Length(5, 20, ErrorMessage = "Başlık 5 ile 20 karakter arasında olmalıdır.")]
     [Required(ErrorMessage = "Başlık alanı boş bırakılamaz.")]
     [Display(Name = "Başlık :")]
     public string Title { get; set; } = null!;

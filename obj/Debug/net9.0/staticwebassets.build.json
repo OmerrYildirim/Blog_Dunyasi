@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vnzHaGncPhZSBIJgEJewTDdBBBI/J1DNEjPB1+EmWLU=",
+  "Hash": "uVRMXXe+/y4xDm3EarFumqgZaAjL5pQzcRK+AzQmQ98=",
   "Source": "DogusProject",
   "BasePath": "_content/DogusProject",
   "Mode": "Default",
@@ -164,12 +164,12 @@
       "OriginalItemSpec": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\43cc2rypvl-5fvz5hfmk4.gz",
+      "Identity": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\43cc2rypvl-61n19gt1b8.gz",
       "SourceId": "DogusProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/DogusProject",
-      "RelativePath": "favicon#[.{fingerprint=5fvz5hfmk4}]?.ico.gz",
+      "RelativePath": "favicon#[.{fingerprint=61n19gt1b8}]?.ico.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -178,8 +178,8 @@
       "RelatedAsset": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\favicon.ico",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "ck4d2wi25h",
-      "Integrity": "pEVKRv277/v+qbxaONkNDBMWLTrpFW6Wh+/odY1p3lw=",
+      "Fingerprint": "nezsohjtde",
+      "Integrity": "wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\favicon.ico"
@@ -1459,8 +1459,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5fvz5hfmk4",
-      "Integrity": "0QLuTW6lvqxj/EYOxqcg32XvYtjqK2yTBLIgIPIZ0X4=",
+      "Fingerprint": "61n19gt1b8",
+      "Integrity": "Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
@@ -3664,13 +3664,13 @@
       ]
     },
     {
-      "Route": "favicon.5fvz5hfmk4.ico",
-      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\43cc2rypvl-5fvz5hfmk4.gz",
+      "Route": "favicon.61n19gt1b8.ico",
+      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\43cc2rypvl-61n19gt1b8.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000035190203"
+          "Quality": "0.000405022276"
         }
       ],
       "ResponseHeaders": [
@@ -3680,15 +3680,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28416"
+          "Value": "2468"
         },
         {
           "Name": "ETag",
-          "Value": "\"pEVKRv277/v+qbxaONkNDBMWLTrpFW6Wh+/odY1p3lw=\""
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 16:27:23 GMT"
+          "Value": "Sun, 13 Apr 2025 16:29:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3708,13 +3708,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"0QLuTW6lvqxj/EYOxqcg32XvYtjqK2yTBLIgIPIZ0X4=\""
+          "Value": "W/\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5fvz5hfmk4"
+          "Value": "61n19gt1b8"
         },
         {
           "Name": "label",
@@ -3722,12 +3722,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0QLuTW6lvqxj/EYOxqcg32XvYtjqK2yTBLIgIPIZ0X4="
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
         }
       ]
     },
     {
-      "Route": "favicon.5fvz5hfmk4.ico",
+      "Route": "favicon.61n19gt1b8.ico",
       "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3737,7 +3737,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "159518"
+          "Value": "5430"
         },
         {
           "Name": "Content-Type",
@@ -3745,11 +3745,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0QLuTW6lvqxj/EYOxqcg32XvYtjqK2yTBLIgIPIZ0X4=\""
+          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 16:27:23 GMT"
+          "Value": "Sun, 13 Apr 2025 16:29:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3759,7 +3759,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5fvz5hfmk4"
+          "Value": "61n19gt1b8"
         },
         {
           "Name": "label",
@@ -3767,13 +3767,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0QLuTW6lvqxj/EYOxqcg32XvYtjqK2yTBLIgIPIZ0X4="
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
         }
       ]
     },
     {
-      "Route": "favicon.5fvz5hfmk4.ico.gz",
-      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\43cc2rypvl-5fvz5hfmk4.gz",
+      "Route": "favicon.61n19gt1b8.ico.gz",
+      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\43cc2rypvl-61n19gt1b8.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3782,7 +3782,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28416"
+          "Value": "2468"
         },
         {
           "Name": "Content-Type",
@@ -3790,11 +3790,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pEVKRv277/v+qbxaONkNDBMWLTrpFW6Wh+/odY1p3lw=\""
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 16:27:23 GMT"
+          "Value": "Sun, 13 Apr 2025 16:29:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3812,7 +3812,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5fvz5hfmk4"
+          "Value": "61n19gt1b8"
         },
         {
           "Name": "label",
@@ -3820,18 +3820,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-pEVKRv277/v+qbxaONkNDBMWLTrpFW6Wh+/odY1p3lw="
+          "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
         }
       ]
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\43cc2rypvl-5fvz5hfmk4.gz",
+      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\43cc2rypvl-61n19gt1b8.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000035190203"
+          "Quality": "0.000405022276"
         }
       ],
       "ResponseHeaders": [
@@ -3841,15 +3841,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28416"
+          "Value": "2468"
         },
         {
           "Name": "ETag",
-          "Value": "\"pEVKRv277/v+qbxaONkNDBMWLTrpFW6Wh+/odY1p3lw=\""
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 16:27:23 GMT"
+          "Value": "Sun, 13 Apr 2025 16:29:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3869,13 +3869,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"0QLuTW6lvqxj/EYOxqcg32XvYtjqK2yTBLIgIPIZ0X4=\""
+          "Value": "W/\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0QLuTW6lvqxj/EYOxqcg32XvYtjqK2yTBLIgIPIZ0X4="
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
         }
       ]
     },
@@ -3890,7 +3890,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "159518"
+          "Value": "5430"
         },
         {
           "Name": "Content-Type",
@@ -3898,11 +3898,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0QLuTW6lvqxj/EYOxqcg32XvYtjqK2yTBLIgIPIZ0X4=\""
+          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 16:27:23 GMT"
+          "Value": "Sun, 13 Apr 2025 16:29:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3912,13 +3912,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0QLuTW6lvqxj/EYOxqcg32XvYtjqK2yTBLIgIPIZ0X4="
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
         }
       ]
     },
     {
       "Route": "favicon.ico.gz",
-      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\43cc2rypvl-5fvz5hfmk4.gz",
+      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\43cc2rypvl-61n19gt1b8.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3927,7 +3927,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28416"
+          "Value": "2468"
         },
         {
           "Name": "Content-Type",
@@ -3935,11 +3935,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pEVKRv277/v+qbxaONkNDBMWLTrpFW6Wh+/odY1p3lw=\""
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 16:27:23 GMT"
+          "Value": "Sun, 13 Apr 2025 16:29:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3957,7 +3957,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pEVKRv277/v+qbxaONkNDBMWLTrpFW6Wh+/odY1p3lw="
+          "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
         }
       ]
     },
