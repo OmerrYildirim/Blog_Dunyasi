@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DogusProject.Models.Repositories;
 using DogusProject.Models.Repositories.Entities;
+using DogusProject.Models.Validations;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DogusProject.Models.Services.ViewModels;
 
-public class AddBlogViewModel : IValidatableObject
+public class AddBlogViewModel
 {
     [Required(ErrorMessage = "Başlık alanı boş bırakılamaz.")]
     [Display(Name = "Başlık :")]
@@ -20,31 +21,18 @@ public class AddBlogViewModel : IValidatableObject
     [Display(Name = "Lütfen bir kategori seçiniz :")]
 
     public int CategoryId { get; set; }
-    
+
     [Url(ErrorMessage = "Geçerli bir URL giriniz.")]
     [Display(Name = "Image URL")]
     public string? ImageUrl { get; set; }
-
+    
     public bool IsCustomCategory { get; set; }
-    [Display(Name = "Yeni Kategori :")] public string? CustomCategoryName { get; set; }
-    
+
+    [UniqueCategory]
+    [CustomCategoryRequired]
+    [Display(Name = "Yeni Kategori :")]
+    [Validations.Length(3, 20, ErrorMessage = "Kategori adı 3 ile 20 karakter arasında olmalıdır.")]
+    public string? CustomCategoryName { get; set; }
+
     [ValidateNever] public SelectList CategoryList { get; set; } = null!;
-    
-    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-    {
-        var dbContext = validationContext.GetService(typeof(ICategoryRepository)) as ICategoryRepository;
-
-        if (string.IsNullOrEmpty(CustomCategoryName)) yield break;
-        
-        var existingCategory = dbContext.GetAllCategories()
-            .FirstOrDefault(c => c.Name == CustomCategoryName);
-
-        if (existingCategory != null)
-        {
-            yield return new ValidationResult(
-                "Girdiğiniz kategori zaten var.",
-                new[] { nameof(CustomCategoryName) }
-            );
-        }
-    }
 }

@@ -17,7 +17,6 @@ C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\DogusPro
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\scopedcss\bundle\DogusProject.styles.css
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\scopedcss\projectbundle\DogusProject.bundle.scp.css
-C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\43cc2rypvl-61n19gt1b8.gz
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\usft30gdes-t1cqhe9u97.gz
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\hetyl8diy3-c2jlpeoesf.gz
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\kzcn45ynfx-sejl45xvog.gz
@@ -232,7 +231,8 @@ C:\Users\omery\RiderProjects\DogusProject\DogusProject\bin\Debug\net9.0\ru\Micro
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\gl8jhbw6vd-dg7ekvmjwq.gz
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\fc48rai833-ddjmryysp7.gz
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\DogusProject.sourcelink.json
-C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\j8m2jt9vmw-uk6j6io70k.gz
+C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\pkv4946n6u-fq8xu6cd65.gz
+C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\gl8jhbw6vd-z7s3owm2md.gz
+C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\43cc2rypvl-5fvz5hfmk4.gz

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using DogusProject.Models.Validations;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -21,7 +22,11 @@ public class EditBlogViewModel
     public string? ImageUrl { get; set; }
     public bool IsCustomCategory { get; set; }
 
-    [Display(Name = "Yeni Kategori :")] public string? CustomCategoryName { get; set; }
+    [UniqueCategory]
+    [CustomCategoryRequired]
+    [Display(Name = "Yeni Kategori :")]
+    [Validations.Length(3, 20, ErrorMessage = "Kategori adı 3 ile 20 karakter arasında olmalıdır.")]
+    public string? CustomCategoryName { get; set; }
 
     [ValidateNever] public SelectList CategoryList { get; set; } = null!;
 }
