@@ -235,3 +235,4 @@ C:\Users\omery\RiderProjects\DogusProject\DogusProject\bin\Debug\net9.0\zh-Hant\
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\gl8jhbw6vd-dg7ekvmjwq.gz
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\fc48rai833-ddjmryysp7.gz
 C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\DogusProject.sourcelink.json
+C:\Users\omery\RiderProjects\DogusProject\DogusProject\obj\Debug\net9.0\compressed\j8m2jt9vmw-uk6j6io70k.gz

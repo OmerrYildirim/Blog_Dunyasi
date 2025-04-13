@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DogusProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d19a9e46f2392e303728838e0d622821025f3fcb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8fee64b385777e98fe325fa824419deeec320f6")]
 [assembly: System.Reflection.AssemblyProductAttribute("DogusProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DogusProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
