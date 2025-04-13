@@ -6,7 +6,11 @@ public class BlogRepository(AppDbContext context) : IBlogRepository
 {
     public List<Blog> GetAllBlogs()
     {
-        return context.Blogs.Include(x => x.Category).Include(x => x.Author).ToList();
+        return context.Blogs
+            .Include(b => b.Author)
+            .Include(b => b.Category)
+            .OrderByDescending(b => b.CreatedAt)
+            .AsQueryable().ToList();
     }
 
     public void AddBlog(Blog blog)
@@ -21,14 +25,6 @@ public class BlogRepository(AppDbContext context) : IBlogRepository
             .Include(x => x.Category)
             .Include(x => x.Author)
             .FirstOrDefault(x => x.Id == id);
-
-        if (blog == null)
-        {
-            // Log için
-            var allBlogIds = context.Blogs.Select(b => b.Id).ToList();
-            Console.WriteLine($"Aranan ID: {id}");
-            Console.WriteLine($"Mevcut ID'ler: {string.Join(", ", allBlogIds)}");
-        }
 
         return blog;
     }
@@ -47,16 +43,17 @@ public class BlogRepository(AppDbContext context) : IBlogRepository
 
     public List<Blog> GetBlogByCategories(int id)
     {
-        var blogs = context.Blogs.Include(x => x.Category).Include(x => x.Author).Where(x => x.CategoryId == id)
+        var blogs = context.Blogs.Include(x => x.Category).Include(x => x.Author).Include(b => b.Category)
+            .OrderByDescending(b => b.CreatedAt).Where(x => x.CategoryId == id)
             .ToList();
         return blogs;
     }
 
     public bool HasOtherBlogsInCategory(int categoryId)
     {
-       return context.Blogs.Any(b => b.CategoryId == categoryId);
+        return context.Blogs.Any(b => b.CategoryId == categoryId);
     }
-        
+
     public List<Blog> GetBlogsByAuthorId(Guid authorId)
     {
         return context.Blogs
