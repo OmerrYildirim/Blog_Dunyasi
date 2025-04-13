@@ -91,11 +91,6 @@ public class BlogController(IBlogService blogService) : Controller
     public IActionResult Details(int id)
     {
         var blog = blogService.GetDetails(id);
-        if (blog == null)
-        {
-            return NotFound();
-        }
-
         return View(blog);
     }
 }

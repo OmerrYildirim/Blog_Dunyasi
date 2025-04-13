@@ -1,7 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Details";
-}
-@model DogusProject.Models.Services.ViewModels.BlogViewModel
+﻿@model DogusProject.Models.Services.ViewModels.BlogViewModel
 
 <div class="d-flex min-vh-100 bg-dark">
     <!-- Sol Navbar -->
@@ -36,72 +33,65 @@
     <!-- Ana İçerik -->
     <div class="flex-grow-1 p-4">
         <div class="container">
-            <div class="card shadow-lg">
-                <div class="card-body p-4">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2 class="mb-0">Blog Details</h2>
-                        <div class="d-flex gap-2">
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                <a asp-controller="Blog" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary">
-                                    <i class="bi bi-pencil me-2"></i>Edit
-                                </a>
-                                <form asp-controller="Blog" asp-action="Delete" asp-route-id="@Model.Id" method="post"
-                                      onsubmit="return confirm('Are you sure you want to delete this post?')">
-                                    <button type="submit" class="btn btn-outline-danger">
-                                        <i class="bi bi-trash me-2"></i>Delete
-                                    </button>
-                                </form>
-                            }
+            @if (Model != null)
+            {
+                <div class="card shadow-lg">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2 class="mb-0">Blog Detayları</h2>
                             <a asp-action="Index" class="btn btn-outline-secondary">
-                                <i class="bi bi-arrow-left me-2"></i>Back to List
+                                <i class="bi bi-arrow-left me-2"></i>Menüye geri dön.
                             </a>
                         </div>
-                    </div>
 
-                    <article class="blog-post">
                         @if (!string.IsNullOrEmpty(Model.ImageUrl))
                         {
-                            <img src="@Model.ImageUrl" class="img-fluid rounded w-100 mb-4" alt="@Model.Title"
-                                 style="max-height: 400px; object-fit: cover;"/>
-                        }
-                        else
-                        {
-                            <img src="https://www.freeiconspng.com/uploads/no-image-icon-15.png"
-                                 class="img-fluid rounded w-100 mb-4" alt="No Image"
-                                 style="max-height: 400px; object-fit: contain; padding: 20px; background-color: #f8f9fa;"/>
+                            <img src="@Model.ImageUrl" class="card-img-top rounded mb-4" alt="Blog Image" style="height: 400px; object-fit: cover;"/>
                         }
 
-                        <div class="blog-post-meta text-muted mb-4">
-                            <span><i class="bi bi-person-circle"></i> @Model.AuthorName</span>
-                            <span class="mx-2">•</span>
-                            <span><i class="bi bi-tag"></i> @Model.CategoryName</span>
-                            <span class="mx-2">•</span>
-                            <span><i class="bi bi-calendar3"></i> @Model.CreatedAt.ToString("F")</span>
+                        <h3 class="card-title">@Model.Title</h3>
+                        <div class="text-muted mb-4">
+                            <i class="bi bi-person"></i> @Model.AuthorName
+                            <span class="mx-2">|</span>
+                            <i class="bi bi-tag"></i> @Model.CategoryName
+                            <span class="mx-2">|</span>
+                            <i class="bi bi-calendar"></i> @Model.CreatedAt.ToString("f")
                         </div>
 
-                        <h1 class="display-4 mb-4">@Model.Title</h1>
+                        <p class="card-text">@Model.Content</p>
 
-                        <div class="blog-post-content lead">
-                            @Html.Raw(Model.Content)
+                        <div class="mt-5">
+                            <h4 class="mb-4">Yorumlar</h4>
+                            <div id="commentsList">
+                                @await Html.PartialAsync("PartialViews/_commentList", Model.Comments)
+                            </div>
+
+                            @if (User.Identity!.IsAuthenticated)
+                            {
+                                <div class="mt-4">
+                                    <h5>Yorum Yaz</h5>
+                                    <form asp-controller="Comment" asp-action="AddComment" method="post">
+                                        <input type="hidden" name="BlogId" value="@Model.Id"/>
+                                        <div class="form-group mb-3">
+                                            <textarea name="Content" class="form-control" rows="3"
+                                                   placeholder="Yorumunuzu buraya yazınız."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="bi bi-send me-2"></i>Yorum Gönder!
+                                        </button>
+                                    </form>
+                                </div>
+                            }
                         </div>
-                    </article>
+                    </div>
                 </div>
-            </div>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    <i class="bi bi-exclamation-triangle me-2"></i>Blog bulunamadı.
+                </div>
+            }
         </div>
     </div>
 </div>
-
-<style>
-    .blog-post-meta span {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .blog-post-content {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: #2c3e50;
-    }
-</style>

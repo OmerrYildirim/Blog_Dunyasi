@@ -9,6 +9,7 @@ namespace DogusProject.Models.Services;
 public class BlogService(
     IBlogRepository blogRepository,
     ICategoryRepository categoryRepository,
+    ICommentRepository commentRepository,
     IHttpContextAccessor contextAccessor) : IBlogService
 {
     public List<BlogViewModel> GetAllBlogs()
@@ -139,6 +140,15 @@ public class BlogService(
     
     public void DeleteBlog(int id)
     {
+        var comments = commentRepository.GetCommentsById(id);
+        if (comments != null)
+        {
+            foreach (var comment in comments)
+            {
+                commentRepository.DeleteComment(comment);
+            }
+        }
+        
         var blog = blogRepository.GetBlogById(id);
         if (blog == null) return;
 
@@ -229,7 +239,16 @@ public class BlogService(
             CreatedAt = blog.CreatedAt,
             AuthorName = blog.Author.UserName,
             CategoryName = blog.Category.Name,
-            ImageUrl = blog.ImageUrl
+            ImageUrl = blog.ImageUrl,
+            Comments = commentRepository.GetCommentsById(id)
+                .Select(c => new CommentViewModel
+                {
+                    Id = c.Id,
+                    Content = c.CommentText,
+                    CreatedAt = c.CreatedAt,
+                    UserName = c.User.UserName,
+                }).ToList()
+
         };
 
         return blogViewModel;
@@ -247,6 +266,20 @@ public class BlogService(
                 categoryRepository.DeleteEmptyCategories(category);
             }
         }
+    }
+    public List<BlogViewModel> GetBlogsByAuthorId(Guid authorId)
+    {
+        var blogs = blogRepository.GetBlogsByAuthorId(authorId);
+        return blogs.Select(blog => new BlogViewModel
+        {
+            Id = blog.Id,
+            Title = blog.Title,
+            Content = blog.Content,
+            CreatedAt = blog.CreatedAt,
+            AuthorName = blog.Author.UserName,
+            CategoryName = blog.Category.Name,
+            ImageUrl = blog.ImageUrl
+        }).ToList();
     }
     
     

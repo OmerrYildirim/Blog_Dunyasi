@@ -9,6 +9,6 @@ public interface IBlogRepository
     public void DeleteBlog(Blog blog);
     public List<Blog> GetBlogByCategories(int id);
     public bool HasOtherBlogsInCategory(int categoryId);
-
+    public List<Blog> GetBlogsByAuthorId(Guid authorId);
 
 }

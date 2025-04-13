@@ -4,7 +4,7 @@
 @model DogusProject.Models.Services.ViewModels.EditBlogViewModel
 
 <div class="d-flex min-vh-100 bg-dark">
-    <!-- Sol Navbar -->
+    
     <div class="bg-light border-end" style="width: 250px;">
         <div class="p-3">
             <h5 class="text-center mb-4">Blog App</h5>
@@ -33,15 +33,15 @@
         </div>
     </div>
 
-    <!-- Ana İçerik -->
+    
     <div class="flex-grow-1 p-4">
         <div class="container">
             <div class="card shadow-lg">
                 <div class="card-body p-4">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2 class="mb-0">Edit Blog</h2>
+                        <h2 class="mb-0">Blogu Güncelle</h2>
                         <a asp-action="Index" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left me-2"></i>Back to List
+                            <i class="bi bi-arrow-left me-2"></i>Listeye geri dön.
                         </a>
                     </div>
 
@@ -50,22 +50,22 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="mb-3">
-                                    <label asp-for="Title" class="form-label">Title</label>
+                                    <label asp-for="Title" class="form-label"></label>
                                     <input asp-for="Title" class="form-control" />
                                     <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label asp-for="Content" class="form-label">Content</label>
+                                    <label asp-for="Content" class="form-label"></label>
                                     <textarea asp-for="Content" class="form-control" rows="10"></textarea>
                                     <span asp-validation-for="Content" class="text-danger"></span>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label asp-for="CategoryId" class="form-label"></label>
+                                    <label asp-for="CategoryId" class="form-label">Kategori Seçiniz</label>
                                     <select asp-for="CategoryId" asp-items="@Model.CategoryList" class="form-select"
                                             id="categoryDropdown">
-                                        <option value="">Select a category</option>
+                                        <option value="">Kategori Seçiniz</option>
                                     </select>
                                     <span asp-validation-for="CategoryId" class="text-danger"></span>
                                 </div>
@@ -83,14 +83,14 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label asp-for="ImageUrl" class="form-label">Image URL</label>
-                                    <input asp-for="ImageUrl" class="form-control" value="https://www.freeiconspng.com/uploads/no-image-icon-15.png"/>
+                                    <label asp-for="ImageUrl" class="form-label"></label>
+                                    <input asp-for="ImageUrl" class="form-control" value=""/>
                                     <span asp-validation-for="ImageUrl" class="text-danger"></span>
                                 </div>
 
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="bi bi-check-lg me-2"></i>Save Changes
+                                        <i class="bi bi-check-lg me-2"></i>Değişiklikleri Kaydet
                                     </button>
                                 </div>
                             </div>

@@ -57,4 +57,13 @@ public class BlogRepository(AppDbContext context) : IBlogRepository
        return context.Blogs.Any(b => b.CategoryId == categoryId);
     }
         
+    public List<Blog> GetBlogsByAuthorId(Guid authorId)
+    {
+        return context.Blogs
+            .Include(x => x.Category)
+            .Include(x => x.Author)
+            .Where(b => b.AuthorId == authorId)
+            .OrderByDescending(b => b.CreatedAt)
+            .ToList();
+    }
 }

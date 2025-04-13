@@ -1,4 +1,5 @@
-﻿using DogusProject.Models.Services;
+﻿using System.Security.Claims;
+using DogusProject.Models.Services;
 using DogusProject.Models.Services.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -50,6 +51,27 @@ public class UserController (IUserService userService) : Controller
     public IActionResult AccessDenied()
     {
         return View();
+    }
+    [HttpGet]
+    public async Task<IActionResult> Profile()
+    {
+        
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userId))
+        {
+            return RedirectToAction("Login");
+        }
+
+        
+        var userBlogs = userService.GetUserBlogs(userId);
+        
+        var viewModel = new ProfileViewModel
+        {
+            UserName = User.Identity.Name,
+            Blogs = userBlogs
+        };
+
+        return View(viewModel);
     }
     
 }

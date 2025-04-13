@@ -13,4 +13,6 @@ public class Blog
     public int CategoryId { get; set; } 
     public Category Category { get; set; } = null!; 
     public string? ImageUrl { get; set; }
+    public int CommentId { get; set; }
+    public List<Comment>? Comments { get; set; } = null!;
 }

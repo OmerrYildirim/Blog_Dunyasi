@@ -20,8 +20,9 @@ public class AddBlogViewModel : IValidatableObject
     [Display(Name = "Lütfen bir kategori seçiniz :")]
 
     public int CategoryId { get; set; }
-
-    [Display(Name = "Resim yüklemek isterseniz geçerli bir URL giriniz :")]
+    
+    [Url(ErrorMessage = "Geçerli bir URL giriniz.")]
+    [Display(Name = "Image URL")]
     public string? ImageUrl { get; set; }
 
     public bool IsCustomCategory { get; set; }

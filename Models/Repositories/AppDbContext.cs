@@ -12,7 +12,7 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     
     public DbSet<Blog> Blogs { get; set; } = null!;
     public DbSet<Category> Categories { get; set; } = null!;
-    
+    public DbSet<Comment> Comments { get; set; } = null!;
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -28,6 +28,12 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
             .WithMany(c => c.Blogs)
             .HasForeignKey(b => b.CategoryId)
             .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.Entity<Blog>()
+            .HasMany(b => b.Comments)
+            .WithOne(c => c.Blog)
+            .HasForeignKey(c => c.BlogId)
+            .OnDelete(DeleteBehavior.Restrict);  
     }
   
 }
