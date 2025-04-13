@@ -61,15 +61,8 @@ public class UserController (IUserService userService) : Controller
         {
             return RedirectToAction("Login");
         }
-
         
-        var userBlogs = userService.GetUserBlogs(userId);
-        
-        var viewModel = new ProfileViewModel
-        {
-            UserName = User.Identity.Name,
-            Blogs = userBlogs
-        };
+        var viewModel = userService.CreateProfileViewModel(userId);
 
         return View(viewModel);
     }

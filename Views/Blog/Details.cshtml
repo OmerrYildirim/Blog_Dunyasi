@@ -1,97 +1,64 @@
-﻿@model DogusProject.Models.Services.ViewModels.BlogViewModel
+﻿@{
+    ViewData["Title"] = "Blog Detayı";
+}
+@model DogusProject.Models.Services.ViewModels.BlogViewModel
 
-<div class="d-flex min-vh-100 bg-dark">
-    <!-- Sol Navbar -->
-    <div class="bg-light border-end" style="width: 250px;">
-        <div class="p-3">
-            <h5 class="text-center mb-4">Blog App</h5>
-            <div class="d-flex flex-column gap-2">
-                @if (User.Identity!.IsAuthenticated)
-                {
-                    <a asp-controller="User" asp-action="Profile" class="btn btn-outline-primary">
-                        <i class="bi bi-person-circle me-2"></i>Profil
-                    </a>
-                    <form asp-controller="User" asp-action="SignOut" method="get">
-                        <button type="submit" class="btn btn-outline-danger w-100">
-                            <i class="bi bi-box-arrow-right me-2"></i>Çıkış Yap
-                        </button>
-                    </form>
-                }
-                else
-                {
-                    <a asp-controller="User" asp-action="CreateUser" class="btn btn-outline-primary">
-                        <i class="bi bi-person-plus me-2"></i>Kayıt Ol
-                    </a>
-                    <a asp-controller="User" asp-action="Login" class="btn btn-primary">
-                        <i class="bi bi-box-arrow-in-right me-2"></i>Giriş Yap
-                    </a>
-                }
+<div class="card shadow-lg mb-4">
+    <div class="card-body p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">@Model.Title</h2>
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-2"></i>Menüye geri dön
+            </a>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" class="img-fluid rounded mb-4" alt="Blog Image"/>
+        }
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">
+                <i class="bi bi-person-circle me-2"></i>@Model.AuthorName
+            </span>
+            <div>
+                <span class="badge bg-secondary me-2">@Model.CategoryName</span>
+                <span class="text-muted">
+                    <i class="bi bi-calendar3 me-1"></i>@Model.CreatedAt.ToString("dd.MM.yyyy")
+                </span>
             </div>
         </div>
-    </div>
 
-    <!-- Ana İçerik -->
-    <div class="flex-grow-1 p-4">
-        <div class="container">
-            @if (Model != null)
-            {
-                <div class="card shadow-lg">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h2 class="mb-0">Blog Detayları</h2>
-                            <a asp-action="Index" class="btn btn-outline-secondary">
-                                <i class="bi bi-arrow-left me-2"></i>Menüye geri dön.
-                            </a>
-                        </div>
-
-                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
-                        {
-                            <img src="@Model.ImageUrl" class="card-img-top rounded mb-4" alt="Blog Image" style="height: 400px; object-fit: cover;"/>
-                        }
-
-                        <h3 class="card-title">@Model.Title</h3>
-                        <div class="text-muted mb-4">
-                            <i class="bi bi-person"></i> @Model.AuthorName
-                            <span class="mx-2">|</span>
-                            <i class="bi bi-tag"></i> @Model.CategoryName
-                            <span class="mx-2">|</span>
-                            <i class="bi bi-calendar"></i> @Model.CreatedAt.ToString("f")
-                        </div>
-
-                        <p class="card-text">@Model.Content</p>
-
-                        <div class="mt-5">
-                            <h4 class="mb-4">Yorumlar</h4>
-                            <div id="commentsList">
-                                @await Html.PartialAsync("PartialViews/_commentList", Model.Comments)
-                            </div>
-
-                            @if (User.Identity!.IsAuthenticated)
-                            {
-                                <div class="mt-4">
-                                    <h5>Yorum Yaz</h5>
-                                    <form asp-controller="Comment" asp-action="AddComment" method="post">
-                                        <input type="hidden" name="BlogId" value="@Model.Id"/>
-                                        <div class="form-group mb-3">
-                                            <textarea name="Content" class="form-control" rows="3"
-                                                   placeholder="Yorumunuzu buraya yazınız."></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="bi bi-send me-2"></i>Yorum Gönder!
-                                        </button>
-                                    </form>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <div class="alert alert-danger">
-                    <i class="bi bi-exclamation-triangle me-2"></i>Blog bulunamadı.
-                </div>
-            }
-        </div>
+        <p class="lead">@Model.Content</p>
     </div>
 </div>
+
+<!-- Yorumlar Listesi -->
+<partial name="PartialViews/_commentList" model="@Model.Comments"/>
+
+<!-- Yorum Yapma Formu -->
+@if (User.Identity!.IsAuthenticated)
+{
+    <div class="card shadow-lg mt-4">
+        <div class="card-body p-4">
+            <h5 class="mb-3">Yorum Yap</h5>
+            <form asp-controller="Comment" asp-action="AddComment" method="post">
+                <input type="hidden" name="BlogId" value="@Model.Id"/>
+                <div class="mb-3">
+                    <textarea name="Content" class="form-control" rows="3"
+                              placeholder="Yorumunuzu buraya yazın..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-send me-2"></i>Yorumu Gönder
+                </button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-info mt-4">
+        <i class="bi bi-info-circle me-2"></i>
+        Yorum yapabilmek için lütfen <a asp-controller="User" asp-action="Login">giriş yapın</a>.
+    </div>
+}

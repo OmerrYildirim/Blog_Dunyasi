@@ -50,39 +50,10 @@ public class BlogService(
         return addBlogViewModel;
     }
 
-    public void AddCategoryForAdd(AddBlogViewModel addBlogViewModel)
-    {
-        if (addBlogViewModel.IsCustomCategory && 
-            !string.IsNullOrWhiteSpace(addBlogViewModel.CustomCategoryName))
-        {
-            var newCategory = new Category
-            {
-                Name = addBlogViewModel.CustomCategoryName
-            };
-            categoryRepository.AddCategory(newCategory); 
-            addBlogViewModel.CategoryId = newCategory.Id;
-
-        }
-    }
-    public void AddCategoryForEdit(EditBlogViewModel editBlogViewModel)
-    {
-        if (editBlogViewModel.IsCustomCategory && 
-            !string.IsNullOrWhiteSpace(editBlogViewModel.CustomCategoryName))
-        {
-            var newCategory = new Category
-            {
-                Name = editBlogViewModel.CustomCategoryName
-            };
-        
-            categoryRepository.AddCategory(newCategory); 
-            editBlogViewModel.CategoryId = newCategory.Id;
-        }
-    }
-
+    
     public void AddBlog(AddBlogViewModel addBlogViewModel)
     {
-        AddCategoryForAdd(addBlogViewModel);
-        
+
         var blog = new Blog
         {
             Title = addBlogViewModel.Title!,
@@ -92,15 +63,15 @@ public class BlogService(
             ImageUrl = addBlogViewModel.ImageUrl,
             AuthorId = Guid.Parse(contextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value!),
         };
-        
+
         blogRepository.AddBlog(blog);
     }
-    
+
     public Blog GetBlogById(int id)
     {
         return blogRepository.GetBlogById(id);
     }
-    
+
     public EditBlogViewModel CreateEditViewModel(int id)
     {
         var blog = blogRepository.GetBlogById(id);
@@ -117,7 +88,7 @@ public class BlogService(
         };
         return editBlogViewModel;
     }
-    
+
     public void UpdateBlog(EditBlogViewModel editBlogViewModel)
     {
         var existingBlog = blogRepository.GetBlogById(editBlogViewModel.Id);
@@ -127,7 +98,6 @@ public class BlogService(
 
         if (existingBlog.AuthorId != currentUserId) return;
         
-        AddCategoryForEdit(editBlogViewModel);
 
         existingBlog.Title = editBlogViewModel.Title;
         existingBlog.Content = editBlogViewModel.Content;
@@ -137,9 +107,10 @@ public class BlogService(
 
         blogRepository.UpdateBlog(existingBlog);
     }
-    
+
     public void DeleteBlog(int id)
     {
+        
         var comments = commentRepository.GetCommentsById(id);
         if (comments != null)
         {
@@ -148,24 +119,21 @@ public class BlogService(
                 commentRepository.DeleteComment(comment);
             }
         }
-        
+
         var blog = blogRepository.GetBlogById(id);
         if (blog == null) return;
 
         var currentUserId = Guid.Parse(contextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value!);
-
-        if (blog.AuthorId != currentUserId) return; 
-        blogRepository.DeleteBlog(blog);
         
-        int categoryId = blog.CategoryId;
-        DeleteEmptyCategories(categoryId);
+        if (blog.AuthorId != currentUserId) return;
+        blogRepository.DeleteBlog(blog);
+
         
     }
-    
+
     public BlogPageViewModel CreateBlogPageViewModel(int categoryId)
     {
-        
-        var categories = GetAllCategories()
+        var categories = categoryRepository.GetAllCategories()
             .Select(c => new SelectListItem
             {
                 Value = c.Id.ToString(),
@@ -193,9 +161,8 @@ public class BlogService(
         };
 
         return blogPageViewModel;
-
     }
-    
+
     public List<BlogViewModel> GetBlogsByCategory(int categoryId)
     {
         var blogs = blogRepository.GetBlogByCategories(categoryId);
@@ -221,11 +188,8 @@ public class BlogService(
 
         return blogViewModels;
     }
-    public List<Category> GetAllCategories()
-    {
-        return categoryRepository.GetAllCategories();
-    }
     
+
     public BlogViewModel GetDetails(int id)
     {
         var blog = blogRepository.GetBlogById(id);
@@ -246,44 +210,14 @@ public class BlogService(
                     Id = c.Id,
                     Content = c.CommentText,
                     CreatedAt = c.CreatedAt,
-                    UserName = c.User.UserName,
-                }).ToList()
-
+                    UserName = c.User.UserName
+                }).ToList(),
         };
-
+        Console.WriteLine(blogViewModel.Comments);
         return blogViewModel;
     }
-    public void DeleteEmptyCategories(int categoryId)
-    {
-        
-        bool hasOtherBlogs = blogRepository.HasOtherBlogsInCategory(categoryId);
 
-        if (!hasOtherBlogs)
-        {
-            var category = categoryRepository.GetCategoryById(categoryId);
-            if (category != null)
-            {
-                categoryRepository.DeleteEmptyCategories(category);
-            }
-        }
-    }
-    public List<BlogViewModel> GetBlogsByAuthorId(Guid authorId)
-    {
-        var blogs = blogRepository.GetBlogsByAuthorId(authorId);
-        return blogs.Select(blog => new BlogViewModel
-        {
-            Id = blog.Id,
-            Title = blog.Title,
-            Content = blog.Content,
-            CreatedAt = blog.CreatedAt,
-            AuthorName = blog.Author.UserName,
-            CategoryName = blog.Category.Name,
-            ImageUrl = blog.ImageUrl
-        }).ToList();
-    }
-    
-    
-    
-    
+   
 
+   
 }

@@ -1,125 +1,103 @@
 ﻿@model DogusProject.Models.Services.ViewModels.ProfileViewModel
 
-<div class="d-flex min-vh-100">
-    <!-- Sidebar -->
-    <div class="bg-dark text-white" style="width: 250px;">
-        <div class="p-4">
-            <h4 class="text-center mb-4">Blog Dünyası</h4>
-            <div class="d-flex flex-column gap-3">
-                <a asp-controller="Blog" asp-action="Index" class="btn btn-outline-light">
-                    <i class="bi bi-house-door me-2"></i>Ana Sayfa
-                </a>
-                <form asp-controller="User" asp-action="SignOut" method="get">
-                    <button type="submit" class="btn btn-outline-danger w-100">
-                        <i class="bi bi-box-arrow-right me-2"></i>Çıkış Yap
-                    </button>
-                </form>
+<div class="d-flex flex-column gap-4">
+    <!-- Üst Başlık -->
+    <div class="d-flex justify-content-between align-items-center">
+        <h4 class="mb-0">Profilim</h4>
+        <a asp-controller="Blog" asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle me-2"></i>Yeni Blog Yazısı
+        </a>
+    </div>
+
+    <!-- Profil Kartı -->
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <div class="bg-dark text-white rounded-circle p-3">
+                        <i class="bi bi-person-circle fs-3"></i>
+                    </div>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h5 class="mb-1">@Model.UserName</h5>
+                    <p class="text-muted mb-0">Blog Yazarı</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="flex-grow-1 bg-light">
-        <div class="container py-4">
-            <!-- Header with Add Blog Button -->
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h4 class="mb-0">Profilim</h4>
-                <a asp-controller="Blog" asp-action="Add" class="btn btn-success">
-                    <i class="bi bi-plus-circle me-2"></i>Yeni Blog Yazısı
-                </a>
-            </div>
-
-            <!-- Profile Card -->
-            <div class="card shadow-sm mb-4">
-                <div class="card-body p-4">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0">
-                            <div class="bg-dark text-white rounded-circle p-3">
-                                <i class="bi bi-person-circle fs-3"></i>
-                            </div>
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="mb-1">@Model.UserName</h5>
-                            <p class="text-muted mb-0">Blog Yazarı</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Blogs Section -->
-            <div class="card shadow-sm">
-                <div class="card-header bg-white py-3">
-                    <h5 class="mb-0">Bloglarım</h5>
-                </div>
-                <div class="card-body">
-                    @if (Model.Blogs != null && Model.Blogs.Any())
+    <!-- Blog Listesi -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-white py-3">
+            <h5 class="mb-0">Bloglarım</h5>
+        </div>
+        <div class="card-body">
+            @if (Model.Blogs != null && Model.Blogs.Any())
+            {
+                <div class="row g-4">
+                    @foreach (var blog in Model.Blogs)
                     {
-                        <div class="row g-4">
-                            @foreach (var blog in Model.Blogs)
-                            {
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card h-100 border-0 shadow-sm">
-                                        @if (!string.IsNullOrEmpty(blog.ImageUrl))
-                                        {
-                                            <img src="@blog.ImageUrl" class="card-img-top" alt="Blog Image" style="height: 200px; object-fit: cover;"/>
-                                        }
-                                        else
-                                        {
-                                            <img src="https://www.freeiconspng.com/uploads/no-image-icon-15.png" 
-                                                 class="card-img-top" 
-                                                 alt="No Image Available" 
-                                                 style="height: 200px; object-fit: contain; padding: 20px; background-color: #f8f9fa;"/>
-                                        }
-                                        <div class="card-body">
-                                            <h6 class="card-title mb-2">@blog.Title</h6>
-                                            <p class="card-text small text-muted mb-3">
-                                                @(blog.Content.Length > 100 ? blog.Content[..100] + "..." : blog.Content)
-                                            </p>
-                                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                                <span class="text-muted small">
-                                                    <i class="bi bi-calendar3 me-1"></i>
-                                                    @blog.CreatedAt.ToString("dd.MM.yyyy")
-                                                </span>
-                                                <span class="text-muted small">@blog.CategoryName</span>
-                                            </div>
-                                            <hr class="my-2">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id"
-                                                   class="btn btn-sm btn-link text-decoration-none p-0">
-                                                    Devamını Oku
-                                                </a>
-                                                <div class="btn-group">
-                                                    <a asp-controller="Blog" asp-action="Edit" asp-route-id="@blog.Id"
-                                                       class="btn btn-sm btn-outline-dark">
-                                                        <i class="bi bi-pencil"></i>
-                                                    </a>
-                                                    <form asp-controller="Blog" asp-action="Delete" asp-route-id="@blog.Id"
-                                                          method="post" class="d-inline"
-                                                          onsubmit="return confirm('Bu blogu silmek istediğinizden emin misiniz?')">
-                                                        <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                            <i class="bi bi-trash"></i>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                @if (!string.IsNullOrEmpty(blog.ImageUrl))
+                                {
+                                    <img src="@blog.ImageUrl" class="card-img-top" alt="Blog Image" style="height: 200px; object-fit: cover;"/>
+                                }
+                                else
+                                {
+                                    <img src="https://www.freeiconspng.com/uploads/no-image-icon-15.png"
+                                         class="card-img-top"
+                                         alt="No Image Available"
+                                         style="height: 200px; object-fit: contain; padding: 20px; background-color: #f8f9fa;"/>
+                                }
+                                <div class="card-body">
+                                    <h6 class="card-title mb-2">@blog.Title</h6>
+                                    <p class="card-text small text-muted mb-3">
+                                        @(blog.Content.Length > 100 ? blog.Content[..100] + "..." : blog.Content)
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="text-muted small">
+                                            <i class="bi bi-calendar3 me-1"></i>
+                                            @blog.CreatedAt.ToString("dd.MM.yyyy")
+                                        </span>
+                                        <span class="badge bg-secondary">@blog.CategoryName</span>
+                                    </div>
+                                    <hr class="my-2">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id"
+                                           class="btn btn-sm btn-link text-decoration-none p-0">
+                                            Devamını Oku
+                                        </a>
+                                        <div class="btn-group">
+                                            <a asp-controller="Blog" asp-action="Edit" asp-route-id="@blog.Id"
+                                               class="btn btn-sm btn-outline-dark">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <form asp-controller="Blog" asp-action="Delete" asp-route-id="@blog.Id"
+                                                  method="post" class="d-inline"
+                                                  onsubmit="return confirm('Bu blogu silmek istediğinizden emin misiniz?')">
+                                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                            }
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="text-center py-5">
-                            <i class="bi bi-journal-text fs-1 text-muted"></i>
-                            <p class="mt-3 mb-0">Henüz blog yazınız bulunmuyor.</p>
-                            <a asp-controller="Blog" asp-action="Create" class="btn btn-success mt-3">
-                                <i class="bi bi-plus-circle me-2"></i>İlk Blogunuzu Yazın
-                            </a>
+                            </div>
                         </div>
                     }
                 </div>
-            </div>
+            }
+            else
+            {
+                <div class="text-center py-5">
+                    <i class="bi bi-journal-text fs-1 text-muted"></i>
+                    <p class="mt-3 mb-0">Henüz blog yazınız bulunmuyor.</p>
+                    <a asp-controller="Blog" asp-action="Create" class="btn btn-success mt-3">
+                        <i class="bi bi-plus-circle me-2"></i>İlk Blogunuzu Yazın
+                    </a>
+                </div>
+            }
         </div>
     </div>
 </div>

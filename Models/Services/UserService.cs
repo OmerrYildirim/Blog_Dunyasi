@@ -42,12 +42,10 @@ public class UserService(
     }
     public List<BlogViewModel> GetUserBlogs(string userId)
     {
-        
         if (!Guid.TryParse(userId, out Guid authorId))
         {
             return new List<BlogViewModel>();
         }
-
         
         var blogs = blogRepository.GetBlogsByAuthorId(authorId);
         
@@ -61,5 +59,19 @@ public class UserService(
             CategoryName = blog.Category.Name,
             ImageUrl = blog.ImageUrl
         }).ToList();
+    }
+    public ProfileViewModel CreateProfileViewModel(string userId)
+    {
+        var user = userManager.FindByIdAsync(userId).Result;
+        if (user == null) return null;
+
+        var blogs = GetUserBlogs(userId);
+
+        return new ProfileViewModel
+        {
+            UserName = user.UserName,
+            Email = user.Email,
+            Blogs = blogs
+        };
     }
 }

@@ -21,13 +21,13 @@ public class CommentService(ICommentRepository commentRepository,IBlogRepository
         return addCommentViewModel;
     }
     
-    public void AddComment(AddCommentViewModel addcommentViewModel)
+    public void AddComment(AddCommentViewModel addCommentViewModel)
     {
         var comment = new Comment
         {
-            CommentText = addcommentViewModel.Content,
+            CommentText = addCommentViewModel.Content,
             CreatedAt = DateTime.Now,
-            BlogId = addcommentViewModel.BlogId,
+            BlogId = addCommentViewModel.BlogId,
             UserId = Guid.Parse(contextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value!)
             
         };

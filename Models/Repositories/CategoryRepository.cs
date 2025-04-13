@@ -30,4 +30,5 @@ public class CategoryRepository(AppDbContext context) : ICategoryRepository
       context.Categories.Remove(category);
       context.SaveChanges();
    }
+   
 }

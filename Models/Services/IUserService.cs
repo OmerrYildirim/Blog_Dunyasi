@@ -9,4 +9,5 @@ public interface IUserService
     bool Login(LoginViewModel model);
     void SignOut();
     public List<BlogViewModel> GetUserBlogs(string userId);
+    public ProfileViewModel CreateProfileViewModel(string userId);
 }

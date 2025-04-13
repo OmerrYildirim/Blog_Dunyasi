@@ -2,6 +2,7 @@
 
 public interface IBlogRepository 
 {
+    
     void AddBlog(Blog blog);
     public List<Blog> GetAllBlogs();
     public Blog GetBlogById(int id);

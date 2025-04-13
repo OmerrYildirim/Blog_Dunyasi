@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace DogusProject.Controllers;
 
 [Authorize]
-public class BlogController(IBlogService blogService) : Controller
+public class BlogController(IBlogService blogService, ICategoryService categoryService) : Controller
 {
     [AllowAnonymous]
     [HttpGet]
@@ -31,6 +31,7 @@ public class BlogController(IBlogService blogService) : Controller
     public IActionResult Create(AddBlogViewModel addBlogViewModel)
     {
         if (!ModelState.IsValid) return View(blogService.CreateViewModel(addBlogViewModel));
+        categoryService.AddCategoryForAdd(addBlogViewModel);
         blogService.AddBlog(addBlogViewModel);
         return RedirectToAction("Index");
     }
@@ -65,7 +66,8 @@ public class BlogController(IBlogService blogService) : Controller
 
         if (!ModelState.IsValid)
             return View(blogService.CreateEditViewModel(editBlogViewModel.Id));
-
+        
+        categoryService.AddCategoryForEdit(editBlogViewModel);
         blogService.UpdateBlog(editBlogViewModel);
         return RedirectToAction("Index");
     }
@@ -75,6 +77,8 @@ public class BlogController(IBlogService blogService) : Controller
     {
         var blog = blogService.GetBlogById(id);
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        int categoryId = blog.CategoryId;
+        
 
         if (blog.AuthorId.ToString() != userId)
         {
@@ -83,6 +87,7 @@ public class BlogController(IBlogService blogService) : Controller
         }
 
         blogService.DeleteBlog(id);
+        categoryService.DeleteEmptyCategories(categoryId);
         return RedirectToAction("Index");
     }
 

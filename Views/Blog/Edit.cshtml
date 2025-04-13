@@ -1,108 +1,70 @@
 ﻿@{
-    ViewData["Title"] = "Edit Blog";
+    ViewData["Title"] = "Blog Düzenle";
 }
 @model DogusProject.Models.Services.ViewModels.EditBlogViewModel
 
-<div class="d-flex min-vh-100 bg-dark">
-    
-    <div class="bg-light border-end" style="width: 250px;">
-        <div class="p-3">
-            <h5 class="text-center mb-4">Blog App</h5>
-            <div class="d-flex flex-column gap-2">
-                @if (User.Identity!.IsAuthenticated)
-                {
-                    <a asp-controller="User" asp-action="Profile" class="btn btn-outline-primary">
-                        <i class="bi bi-person-circle me-2"></i>Profil
-                    </a>
-                    <form asp-controller="User" asp-action="SignOut" method="get">
-                        <button type="submit" class="btn btn-outline-danger w-100">
-                            <i class="bi bi-box-arrow-right me-2"></i>Çıkış Yap
-                        </button>
-                    </form>
-                }
-                else
-                {
-                    <a asp-controller="User" asp-action="CreateUser" class="btn btn-outline-primary">
-                        <i class="bi bi-person-plus me-2"></i>Kayıt Ol
-                    </a>
-                    <a asp-controller="User" asp-action="Login" class="btn btn-primary">
-                        <i class="bi bi-box-arrow-in-right me-2"></i>Giriş Yap
-                    </a>
-                }
-            </div>
+<div class="card shadow-lg">
+    <div class="card-body p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">Blog Düzenle</h2>
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-2"></i>Menüye geri dön
+            </a>
         </div>
-    </div>
 
-    
-    <div class="flex-grow-1 p-4">
-        <div class="container">
-            <div class="card shadow-lg">
-                <div class="card-body p-4">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2 class="mb-0">Blogu Güncelle</h2>
-                        <a asp-action="Index" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left me-2"></i>Listeye geri dön.
-                        </a>
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Id"/>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="mb-3">
+                        <label asp-for="Title" class="form-label"></label>
+                        <input asp-for="Title" class="form-control"/>
+                        <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
 
-                    <form asp-action="Edit" method="post">
-                        <input type="hidden" asp-for="Id" />
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="mb-3">
-                                    <label asp-for="Title" class="form-label"></label>
-                                    <input asp-for="Title" class="form-control" />
-                                    <span asp-validation-for="Title" class="text-danger"></span>
-                                </div>
+                    <div class="mb-3">
+                        <label asp-for="Content" class="form-label"></label>
+                        <textarea asp-for="Content" class="form-control" rows="10"></textarea>
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
 
-                                <div class="mb-3">
-                                    <label asp-for="Content" class="form-label"></label>
-                                    <textarea asp-for="Content" class="form-control" rows="10"></textarea>
-                                    <span asp-validation-for="Content" class="text-danger"></span>
-                                </div>
+                    <div class="mb-3">
+                        <label asp-for="CategoryId" class="form-label"></label>
+                        <select asp-for="CategoryId" asp-items="@Model.CategoryList" class="form-select" id="categoryDropdown">
+                            <option value="">Select a category</option>
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
 
-                                <div class="mb-3">
-                                    <label asp-for="CategoryId" class="form-label">Kategori Seçiniz</label>
-                                    <select asp-for="CategoryId" asp-items="@Model.CategoryList" class="form-select"
-                                            id="categoryDropdown">
-                                        <option value="">Kategori Seçiniz</option>
-                                    </select>
-                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
-                                </div>
-
-                                <div class="mb-3">
-                                    <div class="form-check">
-                                        <input asp-for="IsCustomCategory" class="form-check-input" id="isCustomCategory"/>
-                                        <label asp-for="IsCustomCategory" class="form-check-label">
-                                            Aradığınız kategori listede yok mu?
-                                        </label>
-                                    </div>
-                                    <input asp-for="CustomCategoryName" class="form-control mt-2"
-                                           placeholder="Yeni kategori girin" id="customCategoryName" disabled/>
-                                    <span asp-validation-for="CustomCategoryName" class="text-danger"></span>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label asp-for="ImageUrl" class="form-label"></label>
-                                    <input asp-for="ImageUrl" class="form-control" value=""/>
-                                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
-                                </div>
-
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="bi bi-check-lg me-2"></i>Değişiklikleri Kaydet
-                                    </button>
-                                </div>
-                            </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input asp-for="IsCustomCategory" class="form-check-input" id="isCustomCategory"/>
+                            <label asp-for="IsCustomCategory" class="form-check-label">
+                                Aradığınız kategori listede yok mu?
+                            </label>
                         </div>
-                    </form>
+                        <input asp-for="CustomCategoryName" class="form-control mt-2" placeholder="Yeni kategori girin"
+                               id="customCategoryName" disabled/>
+                        <span asp-validation-for="CustomCategoryName" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ImageUrl" class="form-label"></label>
+                        <input asp-for="ImageUrl" class="form-control"/>
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save me-2"></i>Değişiklikleri Kaydet
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
 @section Scripts {
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }
