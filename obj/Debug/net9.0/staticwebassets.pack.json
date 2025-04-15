@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\js\\accessDenied.js",
+      "PackagePath": "staticwebassets\\js\\accessDenied.js"
+    },
+    {
       "Id": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\js\\customCategory.js",
       "PackagePath": "staticwebassets\\js\\customCategory.js"
     },

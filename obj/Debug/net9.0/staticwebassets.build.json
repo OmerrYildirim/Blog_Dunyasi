@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uVRMXXe+/y4xDm3EarFumqgZaAjL5pQzcRK+AzQmQ98=",
+  "Hash": "VLa39BM4dbjzVHeoZblzOmX+6AYUwrlq3iJTwXeDa9U=",
   "Source": "DogusProject",
   "BasePath": "_content/DogusProject",
   "Mode": "Default",
@@ -708,6 +708,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\gytluqzs1x-6x90p1759c.gz",
+      "SourceId": "DogusProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/DogusProject",
+      "RelativePath": "js/accessDenied#[.{fingerprint=6x90p1759c}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\js\\accessDenied.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "mqhaiqngqx",
+      "Integrity": "sh3arvTueoXdrc0EVefcJY5HiCf+MkLzkyEa1nDn+ls=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\js\\accessDenied.js"
     },
     {
       "Identity": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\hetyl8diy3-c2jlpeoesf.gz",
@@ -1464,6 +1485,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\js\\accessDenied.js",
+      "SourceId": "DogusProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\",
+      "BasePath": "_content/DogusProject",
+      "RelativePath": "js/accessDenied#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6x90p1759c",
+      "Integrity": "Oj9le+XEmZF4OWf3QqryPbtskiBuJWFgxxve7dgPpSw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\accessDenied.js"
     },
     {
       "Identity": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\js\\customCategory.js",
@@ -3958,6 +4000,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
+        }
+      ]
+    },
+    {
+      "Route": "js/accessDenied.6x90p1759c.js",
+      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\gytluqzs1x-6x90p1759c.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003236245955"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "308"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sh3arvTueoXdrc0EVefcJY5HiCf+MkLzkyEa1nDn+ls=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 19:18:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Oj9le+XEmZF4OWf3QqryPbtskiBuJWFgxxve7dgPpSw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6x90p1759c"
+        },
+        {
+          "Name": "label",
+          "Value": "js/accessDenied.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Oj9le+XEmZF4OWf3QqryPbtskiBuJWFgxxve7dgPpSw="
+        }
+      ]
+    },
+    {
+      "Route": "js/accessDenied.6x90p1759c.js",
+      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\js\\accessDenied.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "562"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Oj9le+XEmZF4OWf3QqryPbtskiBuJWFgxxve7dgPpSw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 19:18:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6x90p1759c"
+        },
+        {
+          "Name": "label",
+          "Value": "js/accessDenied.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Oj9le+XEmZF4OWf3QqryPbtskiBuJWFgxxve7dgPpSw="
+        }
+      ]
+    },
+    {
+      "Route": "js/accessDenied.6x90p1759c.js.gz",
+      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\gytluqzs1x-6x90p1759c.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "308"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sh3arvTueoXdrc0EVefcJY5HiCf+MkLzkyEa1nDn+ls=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 19:18:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6x90p1759c"
+        },
+        {
+          "Name": "label",
+          "Value": "js/accessDenied.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-sh3arvTueoXdrc0EVefcJY5HiCf+MkLzkyEa1nDn+ls="
+        }
+      ]
+    },
+    {
+      "Route": "js/accessDenied.js",
+      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\gytluqzs1x-6x90p1759c.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003236245955"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "308"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sh3arvTueoXdrc0EVefcJY5HiCf+MkLzkyEa1nDn+ls=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 19:18:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Oj9le+XEmZF4OWf3QqryPbtskiBuJWFgxxve7dgPpSw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Oj9le+XEmZF4OWf3QqryPbtskiBuJWFgxxve7dgPpSw="
+        }
+      ]
+    },
+    {
+      "Route": "js/accessDenied.js",
+      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\wwwroot\\js\\accessDenied.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "562"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Oj9le+XEmZF4OWf3QqryPbtskiBuJWFgxxve7dgPpSw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 19:18:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Oj9le+XEmZF4OWf3QqryPbtskiBuJWFgxxve7dgPpSw="
+        }
+      ]
+    },
+    {
+      "Route": "js/accessDenied.js.gz",
+      "AssetFile": "C:\\Users\\omery\\RiderProjects\\DogusProject\\DogusProject\\obj\\Debug\\net9.0\\compressed\\gytluqzs1x-6x90p1759c.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "308"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sh3arvTueoXdrc0EVefcJY5HiCf+MkLzkyEa1nDn+ls=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 19:18:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sh3arvTueoXdrc0EVefcJY5HiCf+MkLzkyEa1nDn+ls="
         }
       ]
     },

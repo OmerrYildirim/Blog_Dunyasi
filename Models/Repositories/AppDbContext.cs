@@ -36,7 +36,7 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
             .WithOne(c => c.Blog)
             .HasForeignKey(c => c.BlogId)
             .OnDelete(DeleteBehavior.Restrict);
-
+        
 
         var users = new List<AppUser>
         {
@@ -48,8 +48,7 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
                 Email = "ahmet@example.com",
                 NormalizedEmail = "AHMET@EXAMPLE.COM",
                 EmailConfirmed = true,
-                PasswordHash =
-                    "AQAAAAIAAYagAAAAELbHteO3V4r0ri8qHzGEpzBvqKIKEbLCpYc2F6FFniqNaNUtQBPztGLE+r/3q683VA==", // Ahmet123!
+                PasswordHash = "AQAAAAIAAYagAAAAEG3ZzqZ5Ez0XdbM7HzBDtLXMDF54QF9d54YbZlMYU1JArXs1xDBSMV5n25fu+RI1fQ==",
                 SecurityStamp = "STATICSTAMP1",
                 ConcurrencyStamp = "STATICSTAMP1"
             },
@@ -61,8 +60,7 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
                 Email = "mehmet@example.com",
                 NormalizedEmail = "MEHMET@EXAMPLE.COM",
                 EmailConfirmed = true,
-                PasswordHash =
-                    "AQAAAAIAAYagAAAAEJwMr9wEqhB+HCfhGmBDX4GLZ72kC6P5K1fBQEcb/+HqWjlYGlBKe47/r5RHs0TLIA==", // Mehmet123!
+                PasswordHash = "AQAAAAIAAYagAAAAEP1JYtdUqMeQOB9b3oPO3ReAOtbvU1GNlU55L8w5gAuI8lF0ZXwGlCmG9R2SvdvVaQ==",
                 SecurityStamp = "STATICSTAMP2",
                 ConcurrencyStamp = "STATICSTAMP2"
             },
@@ -74,13 +72,13 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
                 Email = "ayse@example.com",
                 NormalizedEmail = "AYSE@EXAMPLE.COM",
                 EmailConfirmed = true,
-                PasswordHash =
-                    "AQAAAAIAAYagAAAAEMPPPOm4CUxBKX9wnIZNJ2AjrYgEEEGYBBBjE1vVRJPXEfD0kF3Bw4e+iX9M8erxpA==", // Ayse123!
+                PasswordHash = "AQAAAAIAAYagAAAAEMU1Uw2hAeGlObBGImMychTuM6Q4syuUw19GMymGkTLc4eXsLT+bN9iF4HTuATlMBw==",
                 SecurityStamp = "STATICSTAMP3",
                 ConcurrencyStamp = "STATICSTAMP3"
             }
         };
 
+        
         builder.Entity<AppUser>().HasData(users);
 
         // Seed Categories
@@ -105,7 +103,7 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
                 Content =
                     "Son yıllarda yapay zeka (YZ) alanında yaşanan gelişmeler, teknoloji dünyasında devrim niteliğinde değişimlere yol açtı. Derin öğrenme, makine öğrenimi ve doğal dil işleme konularındaki ilerlemeler sayesinde, yapay zeka artık sadece teorik bir alan olmaktan çıkıp günlük hayatımızın ayrılmaz bir parçası haline geldi. Sağlık sektöründen otomotive, eğitimden finansal analizlere kadar birçok alanda yapay zeka çözümleri aktif olarak kullanılmakta. Örneğin, hastalıkların erken teşhisi için geliştirilen yapay zeka tabanlı sistemler, doktorların işini kolaylaştırırken, hata oranını da ciddi şekilde azaltıyor. Öte yandan, otonom araçlar, sürücüsüz ulaşımın kapılarını aralarken, doğal dil işleme ile geliştirilen chatbot ve dijital asistanlar, müşteri hizmetlerinde devrim yaratıyor. GPT-4 ve benzeri büyük dil modelleri, metin oluşturma, özetleme, çeviri gibi alanlarda insan performansına yakın sonuçlar veriyor. Bu gelişmeler, önümüzdeki yıllarda daha da hız kazanacak gibi görünüyor. Ancak etik ve güvenlik konuları da her zamankinden daha fazla önem taşıyor.",
                 CategoryId = 1,
-                ImageUrl ="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg\n",
+                ImageUrl = "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg\n",
                 AuthorId = users[0].Id,
                 CreatedAt = new DateTime(2024, 04, 01)
             },
